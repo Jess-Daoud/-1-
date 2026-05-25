@@ -1,0 +1,8 @@
+Feature,Importance
+transmission,0.5283646
+seller_type,0.15378541
+fuel,0.14817032
+year,0.06469501
+name,0.04433047
+km_driven,0.03963759
+owner,0.021016605
