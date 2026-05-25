@@ -197,6 +197,60 @@ XGBoost — R² = 0.8918
 В проекте будет реализован DVC pipeline для отслеживания экспериментов и воспроизводимости ML workflow.
 
 ---
+# 🔄 DVC Pipeline
+
+В проекте используется DVC (Data Version Control) для:
+
+- отслеживания версий датасетов;
+- построения ML pipeline;
+- воспроизводимости экспериментов;
+- визуализации workflow через DAG graph.
+
+---
+
+## Построение pipeline
+
+Команда создания stage:
+
+```bash
+dvc stage add -n train \
+-d src/main.py \
+-d data/processed/merged_cars.csv \
+-o reports/metrics.csv \
+python src/main.py
+```
+
+---
+
+## DAG Graph
+
+Ниже представлен вычислительный граф DVC pipeline:
+
+![DVC DAG](dag.png)
+
+---
+
+## Структура pipeline
+
+```text
+data/processed/merged_cars.csv
+        ↓
+      train
+        ↓
+reports/metrics.csv
+```
+
+---
+
+## Используемые DVC файлы
+
+```text
+dvc.yaml
+dvc.lock
+merged_cars.csv.dvc
+dag.dot
+dag.png
+```
 
 # 🛠 Используемые технологии
 
